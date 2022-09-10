@@ -27,7 +27,7 @@ public class FeedbackController {
      * return Arrays.stream(feedbacks).toList();
      * }
      */
-    @GetMapping("/feedback")
+    @GetMapping("/feedback/tipo_escolha")
     public List<Feedback> listaTodosFeedbacks() {
         return FeedbackRepository.all();
     }
