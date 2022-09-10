@@ -37,9 +37,9 @@ public class FeedbackController {
         return FeedbackRepository.getById(id);
     }
 
-    @PostMapping("/perfil")
+    @PostMapping("/feedback/criar_feedbacks")
     public void addFeedback(
-            @RequestBody Feedback feedback) {
+            @RequestBody Feedback feedback)  {
         FeedbackRepository.add(feedback);
     }
 
