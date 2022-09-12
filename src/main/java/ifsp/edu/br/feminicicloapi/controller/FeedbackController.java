@@ -27,28 +27,28 @@ public class FeedbackController {
      * return Arrays.stream(feedbacks).toList();
      * }
      */
-    @GetMapping("/feedback/tipo_escolha")
+    @GetMapping("/feedbacks")
     public List<Feedback> listaTodosFeedbacks() {
         return FeedbackRepository.all();
     }
 
-    @GetMapping("/feedback/{id}")
+    @GetMapping("/feedbacks/{id}")
     public Feedback recuperarFeedbackById(@PathVariable("id") int id) {
         return FeedbackRepository.getById(id);
     }
 
-    @PostMapping("/feedback/criar_feedbacks")
+    @PostMapping("/feedback/criar_feedback")
     public void addFeedback(
             @RequestBody Feedback feedback)  {
         FeedbackRepository.add(feedback);
     }
 
-    @DeleteMapping("/deletaFeedback/{id}")
-    public boolean deletaFeedback(@PathVariable("id") int id) {
-        boolean deletar = FeedbackRepository.deletaFeedbackbyId(id - 1);
-        if (!deletar) {
-            return false;
+    @DeleteMapping ("/feedbacks/delete/{id}")
+    public  boolean  deletar (@PathVariable ("id") int  id){
+        boolean  removido = FeedbackRepository . deletaById (id);
+        if (!removido) {
+            return false ;
         }
-        return true;
+        return true ;
     }
 }
