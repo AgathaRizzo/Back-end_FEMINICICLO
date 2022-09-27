@@ -1,6 +1,15 @@
 package ifsp.edu.br.feminicicloapi.model;
- 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Vitima {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id; 
     private String nome;
     private int idade;
     private String rg;

@@ -2,6 +2,7 @@ package ifsp.edu.br.feminicicloapi.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +17,9 @@ import ifsp.edu.br.feminicicloapi.repository.FeedbackRepository;
 @RestController
 @CrossOrigin
 public class FeedbackController {
-    /*
-     * @GetMapping("/feedback")
-     * public List<Feedback> getAllFeedbacks(){
-     * Feedback feedbacks[] = {
-     * new Feedback("Me ajude!"),
-     * new Feedback("Eu sofro!"),
-     * };
-     * 
-     * return Arrays.stream(feedbacks).toList();
-     * }
-     */
+    
+    @Autowired
+    FeedbackRepository repo;
     @GetMapping("/feedbacks")
     public List<Feedback> listaTodosFeedbacks() {
         return FeedbackRepository.all();

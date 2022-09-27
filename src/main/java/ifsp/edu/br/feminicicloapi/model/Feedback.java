@@ -1,8 +1,8 @@
 package ifsp.edu.br.feminicicloapi.model;
 
 public class Feedback {
+    
     private static int idCounter = 0;
-
     private int id;
     private String descricao;
     
