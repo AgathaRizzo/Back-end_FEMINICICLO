@@ -1,9 +1,12 @@
 package ifsp.edu.br.feminicicloapi.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Profissional {
@@ -15,11 +18,21 @@ public class Profissional {
     private String areaFormacao;
     private String horarioAtendimento;
     private String formaAtendimento;
- 
-    public Profissional() {
- 
+    @OneToMany(mappedBy = "profissional")
+    private List<Vitima> vitimas;
+
+    public List<Vitima> getVitimas() {
+        return vitimas;
     }
- 
+
+    public void setVitimas(List<Vitima> vitimas) {
+        this.vitimas = vitimas;
+    }
+
+    public Profissional() {
+
+    }
+
     public Profissional(String nomeProfissional, String cpf, String areaFormacao, String horarioAtendimento,
             String formaAtendimento) {
         this.nomeProfissional = nomeProfissional;
@@ -28,46 +41,45 @@ public class Profissional {
         this.horarioAtendimento = horarioAtendimento;
         this.formaAtendimento = formaAtendimento;
     }
- 
+
     public String getNomeProfissional() {
         return nomeProfissional;
     }
- 
+
     public void setNomeProfissional(String nomeProfissional) {
         this.nomeProfissional = nomeProfissional;
     }
- 
+
     public String getCpf() {
         return cpf;
     }
- 
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
- 
+
     public String getAreaFormacao() {
         return areaFormacao;
     }
- 
+
     public void setAreaFormacao(String areaFormacao) {
         this.areaFormacao = areaFormacao;
     }
- 
+
     public String getHorarioAtendimento() {
         return horarioAtendimento;
     }
- 
+
     public void setHorarioAtendimento(String horarioAtendimento) {
         this.horarioAtendimento = horarioAtendimento;
     }
- 
+
     public String getFormaAtendimento() {
         return formaAtendimento;
     }
- 
+
     public void setFormaAtendimento(String formaAtendimento) {
         this.formaAtendimento = formaAtendimento;
     }
- 
-}
 
+}

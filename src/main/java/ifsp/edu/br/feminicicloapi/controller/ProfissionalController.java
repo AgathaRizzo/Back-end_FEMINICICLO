@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ifsp.edu.br.feminicicloapi.model.Vitima;
-import ifsp.edu.br.feminicicloapi.repository.VitimaRepository;
+import ifsp.edu.br.feminicicloapi.model.Profissional;
+import ifsp.edu.br.feminicicloapi.repository.ProfissionalRepository;
 
 @RestController
 @CrossOrigin
-public class VitimaController {
+public class ProfissionalController {
 
     @Autowired
-    VitimaRepository repo;
+    ProfissionalRepository repo;
 
-    @PostMapping("/vitima")
-    public void adicionaVitima(
-            @RequestBody Vitima vitima) {
-        repo.save(vitima);
+    @PostMapping("/profissional")
+    public void adicionaProfissional(
+            @RequestBody Profissional profissional) {
+        repo.save(profissional);
     }
 
-    @GetMapping("/vitima")
-    public List<Vitima> recuperaVitima() {
-        return (List<Vitima>) repo.findAll();
+    @GetMapping("/profissional")
+    public List<Profissional> recuperaProfissional() {
+        return (List<Profissional>) repo.findAll();
     }
 }

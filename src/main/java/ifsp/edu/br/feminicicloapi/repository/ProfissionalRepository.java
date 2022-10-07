@@ -1,5 +1,7 @@
 package ifsp.edu.br.feminicicloapi.repository;
 
-public class ProfissionalRepository {
-    
-}
+import org.springframework.data.repository.CrudRepository;
+
+import ifsp.edu.br.feminicicloapi.model.Profissional;
+
+public interface ProfissionalRepository extends CrudRepository<Profissional, Long>{}
