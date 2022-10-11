@@ -12,27 +12,25 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private static int idCounter = 0;
-    private int id;
+    private Long id;
     private String descricao;
+
     @JsonBackReference
-    @OneToOne(mappedBy = "vitima")
+    @OneToOne(mappedBy = "feedback")
     private Vitima vitima;
 
     public Feedback() {
-        this.id = Feedback.idCounter++;
     }
 
     public Feedback(String descricao) {
-        this.id = Feedback.idCounter++;
         this.descricao = descricao;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

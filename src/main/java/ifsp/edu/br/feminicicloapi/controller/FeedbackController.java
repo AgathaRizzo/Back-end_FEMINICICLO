@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import ifsp.edu.br.feminicicloapi.model.Feedback;
 import ifsp.edu.br.feminicicloapi.repository.FeedbackRepository;
@@ -27,5 +29,11 @@ public class FeedbackController {
     @GetMapping("/feedback")
     public List<Feedback> recuperaFeedbacks() {
         return (List<Feedback>) repo.findAll();
+    }
+
+    @DeleteMapping("/feedback/{id}")
+    public void deletaFeedback(@PathVariable int id) {
+        // Deletar o feedback com o id recebido
+        repo.deleteById((long) id);
     }
 }

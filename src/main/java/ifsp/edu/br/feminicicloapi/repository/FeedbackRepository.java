@@ -6,6 +6,5 @@ import ifsp.edu.br.feminicicloapi.model.Feedback;
 
 public interface FeedbackRepository extends CrudRepository<Feedback, Long>{
 
-    static void init() {
-    }}    
+}    
 
