@@ -24,6 +24,9 @@ public class Vitima {
     private String endereco;
     private String boletim;
     private String corpoDelito;
+    private String email;
+    private String senha;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_feedback")
     private Feedback feedback;
@@ -38,14 +41,43 @@ public class Vitima {
 
     }
 
-    public Vitima(String nome, int idade, String rg, String endereco, String boletim, String corpoDelito) {
+
+    public Vitima(Long id, String nome, int idade, String rg, String endereco, String boletim, String corpoDelito,
+            String email, String senha, Feedback feedback, Profissional profissional, List<Instituicao> instituicoes) {
+        this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.rg = rg;
         this.endereco = endereco;
         this.boletim = boletim;
         this.corpoDelito = corpoDelito;
+        this.email = email;
+        this.senha = senha;
+        this.feedback = feedback;
+        this.profissional = profissional;
+        this.instituicoes = instituicoes;
     }
+    
+    
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public String getSenha() {
+        return senha;
+    }
+
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
 
     public String getNome() {
         return nome;
